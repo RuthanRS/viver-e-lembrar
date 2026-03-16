@@ -18,34 +18,25 @@ Embora existam aplicativos com propostas semelhantes, o tema ainda pode ser mais
 
 Funcionalidades planejadas
 
-O aplicativo pretende oferecer funcionalidades como:
-
-Organização da rotina diária
-
-Lembretes de atividades e medicamentos
-
-Registro de fotos de familiares
-
-Reprodução de áudios para estímulo de memória
-
-Contatos de emergência
-
-Interface simples e acessível para facilitar o uso por idosos
+- O aplicativo pretende oferecer funcionalidades como:
+- Organização da rotina diária
+- Lembretes de atividades e medicamentos
+- Registro de fotos de familiares
+- Reprodução de áudios para estímulo de memória
+- Contatos de emergência
+- Interface simples e acessível para facilitar o uso por idosos
 
 Protótipo
 
 As telas do aplicativo estão sendo modeladas utilizando Figma, permitindo visualizar a interface e a experiência do usuário antes do desenvolvimento do sistema.
 
-Protótipo disponível em:
-(Coloque aqui o link do Figma)
+Protótipo disponível em: https://viver-e-lembrar.figma.site/
 
 Tecnologias previstas
+- Kotlin
+- Android Studio
+- Figma (prototipagem e design)
 
-Kotlin
-
-Android Studio
-
-Figma (prototipagem e design)
 
 Metodologia
 
@@ -63,6 +54,4 @@ Protótipo em desenvolvimento.
 **Contribuições**
 Sugestões e melhorias são bem-vindas.
 
-**Por: Ruthan Raniê G. Santos*
-Protótipo em desenvolvimento.
-  
+**Por: Ruthan Raniê G. Santos*  
