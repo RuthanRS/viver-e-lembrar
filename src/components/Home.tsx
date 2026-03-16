@@ -1,8 +1,60 @@
 import { useNavigate } from 'react-router';
 import { Calendar, Users, Image, Bell, Brain, ArrowLeft } from 'lucide-react';
+import { useEffect, useState } from 'react';
+
+interface Contact {
+  id: string;
+  name: string;
+  relationship: string;
+  phone: string;
+  isPriority?: boolean;
+}
 
 export function Home() {
   const navigate = useNavigate();
+  const [priorityContacts, setPriorityContacts] = useState<Contact[]>([]);
+
+  useEffect(() => {
+    const saved = localStorage.getItem('alzheimer-contacts');
+    if (saved) {
+      const contacts: Contact[] = JSON.parse(saved);
+      const priorities = contacts.filter(c => c.isPriority);
+      setPriorityContacts(priorities);
+    }
+  }, []);
+
+  const handleEmergency = () => {
+    if (priorityContacts.length > 0) {
+      // Create message with all priority contacts
+      let message = '';
+      if (priorityContacts.length === 1) {
+        message = `Ligando para ${priorityContacts[0].name}, seu contato de emergência`;
+      } else {
+        const names = priorityContacts.map(c => c.name).join(', ');
+        message = `Você tem ${priorityContacts.length} contatos de emergência: ${names}. Ligando para ${priorityContacts[0].name}`;
+      }
+      
+      const utterance = new SpeechSynthesisUtterance(message);
+      utterance.lang = 'pt-BR';
+      utterance.rate = 0.9;
+      utterance.pitch = 1;
+      window.speechSynthesis.speak(utterance);
+
+      // Make the call to the first priority contact
+      setTimeout(() => {
+        window.location.href = `tel:${priorityContacts[0].phone}`;
+      }, 2500);
+    } else {
+      // If no priority contact, inform user
+      const message = 'Você ainda não definiu um contato de emergência. Por favor, vá em Contatos e defina até três contatos prioritários.';
+      const utterance = new SpeechSynthesisUtterance(message);
+      utterance.lang = 'pt-BR';
+      utterance.rate = 0.9;
+      window.speechSynthesis.speak(utterance);
+      
+      alert('Você ainda não definiu um contato de emergência. Por favor, vá em Contatos e defina até 3 contatos prioritários clicando na estrela ⭐');
+    }
+  };
 
   const features = [
     {
@@ -78,9 +130,18 @@ export function Home() {
 
         {/* Emergency Button */}
         <div className="mt-8">
-          <button className="w-full bg-red-500 text-white py-4 rounded-full text-xl shadow-lg hover:bg-red-600 transition-colors">
+          <button 
+            onClick={handleEmergency}
+            className="w-full bg-red-500 text-white py-4 rounded-full text-xl shadow-lg hover:bg-red-600 transition-colors"
+          >
             🆘 Preciso de Ajuda
           </button>
+          {priorityContacts.length > 0 && (
+            <div className="text-center text-sm text-gray-500 mt-2">
+              <p>Contatos de emergência:</p>
+              <p className="font-medium">{priorityContacts.map(c => c.name).join(', ')}</p>
+            </div>
+          )}
         </div>
       </div>
     </div>
