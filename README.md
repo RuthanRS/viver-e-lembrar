@@ -4,7 +4,7 @@
   This is a code bundle for Viver é Lembrar. The original project is available at https://www.figma.com/design/GIOZkMnJujNVuYGieczeUg/Viver-%C3%A9-Lembrar.
 _________________________________________________________________________________________________________________________________________
 
-<u><stable>Viver é Lembrar</stable></u>
+**Viver é Lembrar**
 
 Protótipo de aplicativo desenvolvido para auxiliar pessoas com Alzheimer e seus familiares no acompanhamento da rotina diária e no estímulo da memória.
 
@@ -57,7 +57,12 @@ Criar uma solução tecnológica que contribua para melhorar a qualidade de vida
 
 Além disso, o projeto também tem finalidade acadêmica, permitindo a aplicação prática de conhecimentos em programação, design de software e desenvolvimento de aplicativos móveis.
 
-Status do projeto
+**Status do projeto**
+Protótipo em desenvolvimento.
 
+**Contribuições**
+Sugestões e melhorias são bem-vindas.
+
+**Por: Ruthan Raniê G. Santos*
 Protótipo em desenvolvimento.
   
